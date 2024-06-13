@@ -9,9 +9,9 @@ const DashboardLayout = ({ children }: Props) => {
     <>
       <main className="px-3 lg:px-14">
         <Header />
-        {children}
+        Dashboard Page
+        {/* {children} */}
       </main>
-      ;
     </>
   );
 };
