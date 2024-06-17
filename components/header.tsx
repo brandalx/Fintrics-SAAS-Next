@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { HeaderLogo } from "./HeaderLogo";
 import { Navigation } from "./navigation";
+import { UserButton, ClerkLoading, ClerkLoaded } from "@clerk/nextjs";
+import { Loader2 } from "lucide-react";
 
 export const Header = () => {
   return (
@@ -11,6 +13,13 @@ export const Header = () => {
             <HeaderLogo />
             <Navigation />
           </div>
+          <ClerkLoaded>
+            <UserButton afterSignOutUrl="/" />
+          </ClerkLoaded>
+
+          <ClerkLoading>
+            <Loader2 className="size-8 animate-spin text-slate-100" />
+          </ClerkLoading>
         </div>
       </div>
     </header>
