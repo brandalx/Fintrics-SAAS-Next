@@ -9,8 +9,6 @@ import books from "./books";
 import accounts from "./accounts";
 export const runtime = "edge";
 
-const app = new Hono().basePath("/api");
-
 // app.get("/hello", clerkMiddleware(), (c) => {
 //   const auth = getAuth(c);
 //   if (!auth?.userId) {
@@ -24,11 +22,14 @@ const app = new Hono().basePath("/api");
 // app.route("/authors", authors);
 // app.route("/books", books);
 
-app.get("/hello", (c) => {
-  return c.json({ hello: "World" });
-});
+// app.get("/hello", (c) => {
+//   return c.json({ hello: "World" });
+// });
+const app = new Hono().basePath("/api");
 
-app.route("/accounts", accounts);
+const routes = app.route("/accounts", accounts);
 
 export const GET = handle(app);
 export const POST = handle(app);
+
+export type AppType = typeof routes;
