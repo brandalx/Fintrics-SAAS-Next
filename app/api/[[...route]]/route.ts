@@ -7,6 +7,7 @@ import { clerkMiddleware, getAuth } from "@hono/clerk-auth";
 import authors from "./authors";
 import books from "./books";
 import accounts from "./accounts";
+import { HTTPException } from "hono/http-exception";
 export const runtime = "edge";
 
 // app.get("/hello", clerkMiddleware(), (c) => {
@@ -26,6 +27,15 @@ export const runtime = "edge";
 //   return c.json({ hello: "World" });
 // });
 const app = new Hono().basePath("/api");
+
+//on error handling for type safety
+
+app.onError((err, c) => {
+  if (err instanceof HTTPException) {
+    return err.getResponse();
+  }
+  return c.json({ error: "Internal Error" });
+});
 
 const routes = app.route("/accounts", accounts);
 

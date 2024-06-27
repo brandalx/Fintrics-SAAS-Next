@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brandon Nolan - Developer</title>
+    <style>
+      body {
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f7;
+        color: #333;
+        overflow-x: hidden;
+      }
+      header {
+        position: fixed;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+      }
+      header nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 1rem 0;
+      }
+      header nav a {
+        color: #333;
+        text-decoration: none;
+        font-size: 1rem;
+        padding: 0.5rem;
+      }
+      header nav a:hover {
+        color: #0070c9;
+      }
+      .hero {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: url("https://via.placeholder.com/1920x1080") no-repeat
+          center center/cover;
+        color: white;
+        text-align: center;
+      }
+      .hero h1 {
+        font-size: 4rem;
+        animation: fadeInDown 1s ease-out;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      section {
+        background-color: white;
+        padding: 2rem;
+        margin: 2rem 0;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        transform: translateY(50px);
+        animation: fadeInUp 0.5s forwards;
+      }
+      section:nth-of-type(odd) {
+        animation-delay: 0.5s;
+      }
+      section:nth-of-type(even) {
+        animation-delay: 1s;
+      }
+      footer {
+        text-align: center;
+        padding: 2rem 0;
+        background-color: #333;
+        color: white;
+      }
+      h2 {
+        color: #0070c9;
+      }
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="#about">About Me</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+        <a href="#blog">Blog</a>
+      </nav>
+    </header>
+
+    <div class="hero">
+      <h1>Brandon Nolan</h1>
+      <p>Developer</p>
+    </div>
+
+    <div class="container">
+      <section id="about">
+        <h2>About Me</h2>
+        <p>
+          Welcome! I am Brandon Nolan, a passionate developer with a love for
+          creating innovative solutions. With a strong background in web
+          development, I enjoy working on both front-end and back-end projects.
+          My goal is to build efficient and scalable applications that make a
+          positive impact.
+        </p>
+      </section>
+
+      <section id="portfolio">
+        <h2>Portfolio</h2>
+        <p>Here are some of the projects I have worked on:</p>
+        <ul>
+          <li>Project 1: Description of project 1.</li>
+          <li>Project 2: Description of project 2.</li>
+          <li>Project 3: Description of project 3.</li>
+        </ul>
+      </section>
+
+      <section id="contact">
+        <h2>Contact Information</h2>
+        <p>You can reach me at:</p>
+        <p>
+          Email:
+          <a href="mailto:brandon.nolan@example.com"
+            >brandon.nolan@example.com</a
+          >
+        </p>
+        <p>Phone: (123) 456-7890</p>
+      </section>
+
+      <section id="blog">
+        <h2>Blog</h2>
+        <p>
+          Stay tuned for updates on my latest projects and insights into the
+          world of development!
+        </p>
+      </section>
+    </div>
+
+    <footer>
+      <p>&copy; 2024 Brandon Nolan. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
