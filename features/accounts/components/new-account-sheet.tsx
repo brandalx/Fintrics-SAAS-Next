@@ -6,8 +6,17 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 
-const NewAccountSheet = () => {
-  return <div>new-account-sheet</div>;
+export const NewAccountSheet = () => {
+  return (
+    <Sheet open>
+      <SheetContent className="space-y-4">
+        <SheetHeader>
+          <SheetTitle>New Account</SheetTitle>
+          <SheetDescription>
+            Creatr a new account to track your transactions
+          </SheetDescription>
+        </SheetHeader>
+      </SheetContent>
+    </Sheet>
+  );
 };
-
-export default NewAccountSheet;
