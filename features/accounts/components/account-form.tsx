@@ -17,8 +17,16 @@ import {
 } from "@/components/ui/form";
 import React from "react";
 
-const AccountForm = () => {
-  return <div>AccountForm</div>;
-};
+const formSchema = insertAccountSchema.pick({
+  name: true,
+});
 
-export default AccountForm;
+type FormValues = z.input<typeof formSchema>;
+
+type Props = {
+  id?: string;
+  defaultValues?: FormValues;
+  ONsUBMonSubmitIT: (values: FormValues) => void;
+  onDelete?: () => void;
+  disabled?: boolean;
+};
