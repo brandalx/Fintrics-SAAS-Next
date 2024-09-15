@@ -43,6 +43,7 @@ export const AccountForm = ({
   });
 
   const handleSubmit = (values: FormValues) => {
+    //once all form values are in place only triggers via values passed otherwise will reject fnc
     console.log({ values });
 
     const handleDelete = () => {
@@ -50,6 +51,26 @@ export const AccountForm = ({
     };
   };
   <Form {...form}>
-    <form onSubmit={form.handleSubmit(handleSubmit)}></form>
+    <form
+      onSubmit={form.handleSubmit(handleSubmit)}
+      className="space-y-4 pt-4 "
+    >
+      <FormField
+        name="name"
+        //name passed in schema.ts
+        control={form.control}
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>Name</FormLabel>
+            <FormControl>
+              <Input
+                disabled={disabled}
+                placeholder="e.g Cash, Bank, Credit Card"
+              />
+            </FormControl>
+          </FormItem>
+        )}
+      />
+    </form>
   </Form>;
 };
