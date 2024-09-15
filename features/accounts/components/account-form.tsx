@@ -26,7 +26,30 @@ type FormValues = z.input<typeof formSchema>;
 type Props = {
   id?: string;
   defaultValues?: FormValues;
-  ONsUBMonSubmitIT: (values: FormValues) => void;
+  onSubmit: (values: FormValues) => void;
   onDelete?: () => void;
   disabled?: boolean;
+};
+export const AccountForm = ({
+  onSubmit,
+  defaultValues,
+  disabled,
+  id,
+  onDelete,
+}: Props) => {
+  const form = useForm<FormValues>({
+    resolver: zodResolver(formSchema),
+    defaultValues: defaultValues,
+  });
+
+  const handleSubmit = (values: FormValues) => {
+    console.log({ values });
+
+    const handleDelete = () => {
+      onDelete?.();
+    };
+  };
+  <Form {...form}>
+    <form onSubmit={form.handleSubmit(handleSubmit)}></form>
+  </Form>;
 };
