@@ -79,7 +79,7 @@ export const AccountForm = ({
           {id ? "Save Changes" : "Create Account"}
         </Button>
 
-        {true && (
+        {!!id && (
           <Button
             type="button"
             // will count as "submit" type if not specified another.
