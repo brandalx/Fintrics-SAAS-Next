@@ -74,12 +74,22 @@ export const AccountForm = ({
             </FormItem>
           )}
         />
-        <Button type="submit" disabled={disabled}>
-          Submit
+
+        <Button className="w-full" disabled={disabled}>
+          {id ? "Save Changes" : "Create Account"}
         </Button>
-        {onDelete && (
-          <Button type="button" onClick={handleDelete} variant="destructive">
-            <Trash className="mr-2 h-4 w-4" /> Delete
+
+        {true && (
+          <Button
+            type="button"
+            // will count as "submit" type if not specified another.
+            disabled={disabled}
+            onClick={handleDelete}
+            className="w-full"
+            variant="outline"
+          >
+            <Trash className="size-4 " style={{ marginRight: "4px" }} /> Delete
+            Account
           </Button>
         )}
       </form>
