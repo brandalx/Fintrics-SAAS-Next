@@ -30,6 +30,7 @@ type Props = {
   onDelete?: () => void;
   disabled?: boolean;
 };
+
 export const AccountForm = ({
   onSubmit,
   defaultValues,
@@ -43,34 +44,45 @@ export const AccountForm = ({
   });
 
   const handleSubmit = (values: FormValues) => {
-    //once all form values are in place only triggers via values passed otherwise will reject fnc
-    console.log({ values });
-
-    const handleDelete = () => {
-      onDelete?.();
-    };
+    // once all form values are in place only triggers via values passed otherwise will reject fnc
+    onSubmit(values); // Trigger the onSubmit callback
   };
-  <Form {...form}>
-    <form
-      onSubmit={form.handleSubmit(handleSubmit)}
-      className="space-y-4 pt-4 "
-    >
-      <FormField
-        name="name"
-        //name passed in schema.ts
-        control={form.control}
-        render={({ field }) => (
-          <FormItem>
-            <FormLabel>Name</FormLabel>
-            <FormControl>
-              <Input
-                disabled={disabled}
-                placeholder="e.g Cash, Bank, Credit Card"
-              />
-            </FormControl>
-          </FormItem>
+
+  const handleDelete = () => {
+    onDelete?.();
+  };
+
+  return (
+    <Form {...form}>
+      <form
+        onSubmit={form.handleSubmit(handleSubmit)}
+        className="space-y-4 pt-4"
+      >
+        <FormField
+          name="name"
+          control={form.control}
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Name</FormLabel>
+              <FormControl>
+                <Input
+                  disabled={disabled}
+                  placeholder="e.g Cash, Bank, Credit Card"
+                  {...field}
+                />
+              </FormControl>
+            </FormItem>
+          )}
+        />
+        <Button type="submit" disabled={disabled}>
+          Submit
+        </Button>
+        {onDelete && (
+          <Button type="button" onClick={handleDelete} variant="destructive">
+            <Trash className="mr-2 h-4 w-4" /> Delete
+          </Button>
         )}
-      />
-    </form>
-  </Form>;
+      </form>
+    </Form>
+  );
 };
