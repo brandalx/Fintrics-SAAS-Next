@@ -13,5 +13,9 @@ export const useCreateAccount = () => {
       const response = await client.api.accounts.$post({ json });
       return await response.json();
     },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["accounts"] });
+    },
+    onError: () => {},
   });
 };
